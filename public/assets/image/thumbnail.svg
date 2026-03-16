@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copied from public/images/logo.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="40" viewBox="0 0 200 40">
+  <!-- Placeholder: please replace with the original logo.svg content if needed -->
+  <rect width="200" height="40" fill="#ffffff"/>
+  <text x="10" y="25" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#000">My Personal Portfolio</text>
+</svg>

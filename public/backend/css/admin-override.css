@@ -1,0 +1,19 @@
+:root {
+  --sidebar-bg: #000000;
+}
+
+/* Pure black gradient class to override existing admin colors */
+.bg-gradient-black {
+  background-color: #000 !important;
+  background-image: linear-gradient(180deg, #000 0%, #000 100%) !important;
+  background-size: cover !important;
+}
+
+/* Ensure sidebar links contrast on black */
+.sidebar-dark .nav-item .nav-link {
+  color: #ddd !important;
+}
+
+.sidebar-dark .sidebar-brand-icon img {
+  background-color: transparent !important;
+}
