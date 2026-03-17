@@ -62,6 +62,15 @@
                                     </span>
                                 @endif
                             </div>
+                            <div class="form-floating mb-3">
+                                <label for="youtube_link">YouTube Video Link (Optional)</label>
+                                <input class="form-control" id="youtube_link" type="url" placeholder="Enter YouTube Video URL" name="youtube_link" value="{{old('youtube_link')}}">
+                                @if ($errors->has('youtube_link'))
+                                    <span class="text-danger">
+                                        {{$errors->first('youtube_link')}}
+                                    </span>
+                                @endif
+                            </div>
 
                             <div class="form-floating mb-3">
                                 <label for="technology">Technology</label>

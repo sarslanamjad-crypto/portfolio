@@ -8,7 +8,24 @@
         <a href="{{ url('/') }}#page5" class="alx-btn mb-4" style="padding: 10px 20px; font-size: 14px;"><i class="fa fa-arrow-left"></i> Back to Portfolio</a>
         <div class="row mt-4 justify-content-center">
             <div class="col-lg-10">
-                @if($project->video)
+                @if($project->youtube_link)
+                    @php
+                        // Extract YouTube video ID
+                        $youtube_url = $project->youtube_link;
+                        $video_id = '';
+                        if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/\s]{11})%i', $youtube_url, $match)) {
+                            $video_id = $match[1];
+                        }
+                    @endphp
+                    @if($video_id)
+                        <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(255,255,255,0.05); position: relative; padding-bottom: 56.25%; height: 0;">
+                            <iframe src="https://www.youtube.com/embed/{{ $video_id }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    @else
+                        <!-- Invalid YouTube Link -->
+                        <img src="/backend/images/projects/{{ $project->image }}" class="img-fluid" style="border-radius: 15px; width:100%; max-height: 70vh; object-fit: cover; box-shadow: 0 10px 30px rgba(255,255,255,0.05);" alt="{{ $project->title }}">
+                    @endif
+                @elseif($project->video)
                     <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(255,255,255,0.05);">
                         <video controls style="width: 100%; max-height: 70vh; background: #111;">
                             <source src="/backend/videos/projects/{{ $project->video }}" type="video/mp4">

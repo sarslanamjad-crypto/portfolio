@@ -33,7 +33,8 @@ class AdminProjectsController extends Controller
                 'technology' => 'required|min:3',
                 'client' => 'required|min:3',
                 'image' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
-                'video' => 'nullable|mimes:mp4,mov,ogg,qt|max:50000'
+                'video' => 'nullable|mimes:mp4,mov,ogg,qt|max:50000',
+                'youtube_link' => 'nullable|url'
             ]
             );
         $PROJECT_STATUS = 1;
@@ -56,6 +57,7 @@ class AdminProjectsController extends Controller
         $projects->client = $request->client;
         $projects->image = $ImageName;
         $projects->video = $VideoName;
+        $projects->youtube_link = $request->youtube_link;
         $projects->status = $PROJECT_STATUS;
         $projects->save();
         return back()->withSuccess('Project Record Added Successfully');
@@ -82,7 +84,8 @@ class AdminProjectsController extends Controller
                 'technology' => 'required|min:3',
                 'client' => 'required|min:3',
                 'image' => 'nullable|mimes:jpeg,jpg,png|max:10000',
-                'video' => 'nullable|mimes:mp4,mov,ogg,qt|max:50000'
+                'video' => 'nullable|mimes:mp4,mov,ogg,qt|max:50000',
+                'youtube_link' => 'nullable|url'
             ]
             );
 
@@ -107,6 +110,7 @@ class AdminProjectsController extends Controller
         $team->category = $request->category;
         $team->technology = $request->technology;
         $team->client = $request->client;
+        $team->youtube_link = $request->youtube_link;
         $team->status = $PROJECT_STATUS;
         $team->save();
         return back()->withSuccess('Project Record Updated Successfully');
